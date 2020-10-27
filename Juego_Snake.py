@@ -3,6 +3,7 @@
 from turtle import *
 from random import randrange
 from freegames import square, vector
+import random
 
 #la posición de la comida, la serpiente y la dirección se indica con vectores.
 food = vector(0, 0)
@@ -27,9 +28,10 @@ def inside(food):
 #funcino recursiva que controla el movimiento de la serpiente y la comida. Tambien incluye el proceso de la serpiente "comiendo".
 def move():
     "Move snake forward one segment."
+    val=[-1,0,0,0,0,0,0,0,0,0,0,0,1]
     head = snake[-1].copy()
-    food.x = randrange(-1, 2) * 10 + food.x
-    food.y = randrange(-1, 2) * 10 + food.y
+    food.x= random.choice(val)*10+food.x
+    food.y= random.choice(val)*10+food.y
     head.move(aim)
     
     if not inside(food):
