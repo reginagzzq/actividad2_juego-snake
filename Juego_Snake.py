@@ -1,5 +1,5 @@
 #A00827434 Ernesto García González
-#A00827107 Regina González
+#A00827107 Regina González Quijano
 from turtle import *
 from random import randrange
 from freegames import square, vector
@@ -15,11 +15,11 @@ def change(x, y):
     aim.x = x
     aim.y = y
 
-#función que indica los límites de la ventana del juego y si la SERPIENTE está dentro de la ventana.
+#función que indica los límites de la ventana del juego y si la serpiente está dentro de la ventana.
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
-#función que indica los límites de la ventana del juego y si la COMIDA está dentro de la ventana.
+#función que indica los límites de la ventana del juego y si la comida está dentro de la ventana.
 def inside(food):
     "Return True if food inside boundaries."
     return -200 < food.x < 190 and -200 < food.y < 190
