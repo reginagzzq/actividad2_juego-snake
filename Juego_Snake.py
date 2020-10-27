@@ -15,16 +15,26 @@ def change(x, y):
     aim.x = x
     aim.y = y
 
-#función que indica los límites de la ventana del juego y si la serpiente está dentro de la ventana.
+#función que indica los límites de la ventana del juego y si la SERPIENTE está dentro de la ventana.
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
+#función que indica los límites de la ventana del juego y si la COMIDA está dentro de la ventana.
+def inside(food):
+    "Return True if food inside boundaries."
+    return -200 < food.x < 190 and -200 < food.y < 190
 
-#funcino para 
+#funcino recursiva que controla el movimiento de la serpiente y la comida. Tambien incluye el proceso de la serpiente "comiendo".
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
+    food.x = randrange(-1, 2) * 10 + food.x
+    food.y = randrange(-1, 2) * 10 + food.y
     head.move(aim)
+    
+    if not inside(food):
+        food.x = randrange(-15, 15) * 10
+        food.y = randrange(-15, 15) * 10
 
 
     if not inside(head) or head in snake:
