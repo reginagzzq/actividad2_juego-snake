@@ -1,33 +1,34 @@
 #A00827434 Ernesto García González
 #A00827107 Regina González Quijano
+
 from turtle import *
 from random import randrange
 from freegames import square, vector
 import random
 
-#la posición de la comida, la serpiente y la dirección se indica con vectores.
+#La posición de la comida, la serpiente y la dirección se indican con vectores.
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 colores  = ["blue","orange","purple","pink","yellow"]
 
-#función que le da valores al vector aim que indica la dirección
+#Función que le da valores al vector aim que indica la dirección
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
 
-#función que indica los límites de la ventana del juego y si la serpiente está dentro de la ventana.
+#Función que indica los límites de la ventana del juego y si la serpiente está dentro de la ventana.
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
-#función que indica los límites de la ventana del juego y si la comida está dentro de la ventana.
+#Función que indica los límites de la ventana del juego y si la comida está dentro de la ventana.
 def inside(food):
     "Return True if food inside boundaries."
     return -200 < food.x < 190 and -200 < food.y < 190
 
-#función recursiva que controla el movimiento de la serpiente y la comida. Tambien incluye el proceso de la serpiente "comiendo".
+#Función recursiva que controla el movimiento de la serpiente y la comida. Tambien incluye el proceso de la serpiente "comiendo".
 def move():
     "Move snake forward one segment."
     val=[-1,0,0,0,0,0,0,0,0,0,0,0,1]
@@ -58,13 +59,16 @@ def move():
 
     clear()
     
+    #Función para el cuerpo de la serpiente. El color random está definido por color_s
     for body in snake:
         square(body.x, body.y, 9, color_s)
     
+    #Características de la comida. El color random de la comida está definido por color_f
     square(food.x, food.y, 9, color_f)
     update()
     ontimer(move, 100)
 
+#Main-code
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
